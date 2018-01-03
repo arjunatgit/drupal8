@@ -1,0 +1,9 @@
+## YAML Template.
+---
+resume.form:
+  path: '/resume/myform'
+  defaults:
+    _title: 'Resume form'
+    _form: '\Drupal\resume\Form\ResumeForm'
+  requirements:
+    _permission: 'access content'

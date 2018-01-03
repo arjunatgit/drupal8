@@ -1,0 +1,9 @@
+## YAML Template.
+---
+resume.add:
+  title: 'Add Resume'
+  description: 'Resume Add'
+  parent: main
+  menu_name: main
+  route_name: resume.form
+  weight: 5

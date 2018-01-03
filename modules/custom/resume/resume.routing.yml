@@ -1,9 +1,24 @@
 ## YAML Template.
 ---
 resume.form:
-  path: '/resume/myform'
+  path: '/resume/form/myform'
   defaults:
     _title: 'Resume form'
     _form: '\Drupal\resume\Form\ResumeForm'
   requirements:
     _permission: 'access content'
+resume.resume_controller_display:
+  path: '/resume/list'
+  defaults:
+    _controller: '\Drupal\resume\Controller\ResumeController::display'
+    _title: 'List of Resume Submits'
+  requirements:
+    _permission: 'access content'
+
+resume.delete_form:
+  path: '/resume/form/delete/{cid}'
+  defaults:
+    _form: '\Drupal\resume\Form\DeleteForm'
+    _title: 'DeleteForm'
+  requirements:
+    _access: 'TRUE'

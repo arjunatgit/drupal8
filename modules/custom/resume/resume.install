@@ -1,0 +1,79 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ * Set the default devel dumper plugin.
+ */
+use Drupal\Core\Database\Database;
+
+function resume_schema() {
+  $schema['resume'] = array(
+    'fields' => array(
+      'id'=>array(
+        'type'=>'serial',
+        'not null' => TRUE,
+      ),
+      'candidate_name'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'candidate_number'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'candidate_email'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+        ),
+      'candidate_dob'=>array(
+        'type' => 'varchar',
+        'length' => 25,
+        'not null' => TRUE,
+      ),
+      'candidate_gender'=>array(
+        'type' => 'varchar',
+        'length' => 40,
+        'not null' => TRUE,
+      ),
+      'website'=>array(
+        'type' => 'varchar',
+        'length' => 250,
+        'not null' => TRUE,
+      ),
+      'candidate_confirmation'=>array(
+        'type' => 'varchar',
+        'description' => "Age Confirmation",
+        'length' => 40,
+        'not null' => TRUE,
+     ),
+     
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}
+
+function resume_update_8002() {
+  $field1 = array(
+    'type' => 'varchar',
+    'description' => "Resume Path",
+    'length' => 100,
+    'not null' => FALSE,
+  ); 
+  $field2 = array(
+    'type' => 'varchar',
+    'description' => "Resume Title",
+    'length' => 80,
+    'not null' => FALSE,
+  ); 
+ $schema = Database::getConnection()->schema();
+ $schema->addField('resume', 'candidate_resume_path', $field1);
+ $schema->addField('resume', 'candidate_resume_title', $field2);
+}

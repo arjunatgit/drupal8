@@ -2,7 +2,7 @@
 ---
 name: Resume
 type: module
-description: Resume module
+description: Resume exampl module
 package: custom
 core: 8.x
 
